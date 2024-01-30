@@ -1,0 +1,22 @@
+meta {
+  name: Create Request (POST)
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:3001/
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+        "id": 2,
+        "seriesMovieName": "Shrek",
+        "villainName": "Prince Charming",
+        "actions": "The manipulative narcissistic prince fails due to his overconfidence and lack of originality. His attempt to steal Shrek's lines during a sword fight is pure comedic gold.",
+        "villainImgLink": "https://static.wikia.nocookie.net/deadliestfiction/images/7/70/Prince_Charming.jpg/revision/latest/scale-to-width/360?cb=20190803002322",
+        "posterLink": "https://m.media-amazon.com/images/M/MV5BMDJhMGRjN2QtNDUxYy00NGM3LThjNGQtMmZiZTRhNjM4YzUxL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg"
+      }
+}
