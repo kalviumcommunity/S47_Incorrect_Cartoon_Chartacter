@@ -4,3 +4,7 @@
   padding: 2rem;
   text-align: center;
 }
+.HomePage{
+  border-radius: 20px;
+  border: 2px solid black;
+}

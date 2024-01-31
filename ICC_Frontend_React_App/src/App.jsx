@@ -4,7 +4,10 @@ function App() {
 
   return (
     <>
-      <Home/>
+    <div className='HomePage'>
+    <Home/>
+    </div>
+      
     </>
   )
 }
