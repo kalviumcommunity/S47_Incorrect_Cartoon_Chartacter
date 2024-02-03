@@ -13,6 +13,7 @@ function Home() {
                     <br />
                     In this appliction, we will create a list of nonsensical actions performed by villains.
                 </p>
+                
             </div>
             <div>
                 <Link to='/content'><button className='continueBtn'>Continue</button></Link>

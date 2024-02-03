@@ -11,6 +11,10 @@
     border: 2px solid rgb(255, 255, 255);
     height: 75vh;
 }
+.HomePage{
+    height: 95vh;
+    margin: 10px 40px;
+}
 
 .description {
     font-size: 25px;
@@ -23,6 +27,11 @@
     border-radius: 5px;
     cursor: pointer;
     margin: 20px;
-    background-image: linear-gradient(to right, #78A3AB, #FBC2EB)
+    /* background-image: radial-gradient( #78A3AB ); */
+    background-color: black;
+    color: white
 }
 
+.continueBtn:hover{
+    background-color: grey;
+}
