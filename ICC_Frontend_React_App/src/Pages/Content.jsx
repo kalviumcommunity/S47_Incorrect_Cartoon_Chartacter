@@ -14,7 +14,10 @@ function Content() {
   },[])
   return (
     <div className='grid'>
-      <Link to='/add'><button>Add Data</button></Link>
+      <div className='btns'>
+      <Link to='/add'><button className='AddDataBtn'>Add Data</button></Link>
+      </div>
+      
     {
         datas.map((data, index)=>{
             return(
