@@ -3,6 +3,7 @@ import Home from './Pages/Home'
 import {Routes , Route} from 'react-router-dom'
 import Content from './Pages/Content'
 import AddForm from './Pages/AddForm'
+import UpdateContent from './Pages/UpdateContent'
 function App() {
 
   return (
@@ -12,6 +13,7 @@ function App() {
           <Route path='/' element={<Home/>}/>
           <Route path="/content" element={<Content />}/>
           <Route path='/add' element={<AddForm/>}/>
+          <Route path='/update/:id' element={<UpdateContent/>}/>
         </Routes>
     </div>
       

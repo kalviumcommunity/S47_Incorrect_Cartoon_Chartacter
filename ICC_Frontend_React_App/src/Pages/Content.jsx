@@ -12,6 +12,15 @@ function Content() {
     .then(datas => setDatas(datas.data))
     .catch(err => console.log(err))
   },[])
+  
+  const handleDelete= (id) =>{
+    axios.delete('http://localhost:3000/delete/'+id)
+    .then(res => {
+        console.log(res)
+        window.location.reload();
+    })
+    .catch(err=>console.log(err))
+  }
   return (
     <div className='grid'>
       <div className='btns'>
@@ -25,10 +34,14 @@ function Content() {
                     <div>
                     <img src={data.posterLink} className='posterMovie' />
                     </div>
-                    <h2>Movie Title : {data.seriesOrMovieName}</h2>
+                    <h2><span>{data.serialNumber}.</span> Movie Title : {data.seriesOrMovieName}</h2>
                     <p>{data.actions}</p>
                     <img src={data.villainImgLink} alt="" />
                     <h2>Villan Name : {data.villainName}</h2>
+                    <div className="btnContainer">
+                     <Link to={`/update/${data._id}`}> <button className='EditButton'>Edit</button></Link>
+                      <button onClick={(e)=>handleDelete(data._id)} className='DeleteButton'>Delete</button>
+                    </div>
                 </div>
             )
         })

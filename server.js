@@ -1,43 +1,61 @@
-require('dotenv').config();
-
 const cors = require('cors')
 const express = require('express');
-const { MongoClient } = require('mongodb');
+const mongoose = require('mongoose')
 const app = express();
 const port = 3000;
-const bodyParser = require('body-parser');
-
 app.use(cors())
-app.use(bodyParser.json())
+app.use(express.json());
+const Modal = require('./Scheme')
+mongoose.connect('mongodb+srv://ishita_naraniya:ishhMongodb@cluster1.ponxmip.mongodb.net/ASAP',{
+  dbName:"ASAP"
+})
 
-const uri = 'mongodb+srv://ishita_naraniya:ishhMongodb@cluster1.ponxmip.mongodb.net/?retryWrites=true&w=majority';
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-client.connect()
-  .then(() => {
-    console.log('Connected to MongoDB Atlas');
-    const database = client.db('ASAP');
-    const collection = database.collection('Incorrect Cartoon character');
+app.get('/data', (req, res) => {
+  Modal.find({})
+      .then(users => res.json(users))
+      .catch(err => res.json(err))
+})
 
-    app.get('/data', async (req,res)=>{
-    const result = await collection.find({}).toArray();
-      res.json(result);
-    })
 
-    app.post('/data', async (req, res) => {
-      const { serialNumber, seriesOrMovieName, villainName, actions, villainImgLink, posterLink } = req.body;
-      const result = await collection.insertOne({ serialNumber, seriesOrMovieName, villainName, actions, villainImgLink, posterLink });
-      res.json(result);
-    });
-  })
-  .catch(err => {
-    console.error('Error connecting to MongoDB Atlas', err);
-});
+app.post('/insert', (req, res) => {
+  Modal.create(req.body)
+      .then(users => res.json(users))
+      .catch(err => console.log(err))
+})
 
+app.get('/getItem/:id', (req, res) => {
+  const id = req.params.id
+  Modal.findById({ _id : id })
+  .then(data => res.json(data))
+  .catch(err => res.json(err))
+})
+
+app.put('/update/:id', (req,res)=>{
+  const id= req.params.id
+  Modal.findByIdAndUpdate({_id : id},{
+    serialNumber: req.body.serialNumber,
+    seriesOrMovieName: req.body.seriesOrMovieName,
+    villainName: req.body.villainName,
+    actions: req.body.actions,
+    villainImgLink: req.body.villainImgLink,
+    posterLink: req.body.posterLink
+  }, { new: true })
+  .then(data => res.json(data))
+  .catch((err)=>res.status(404).json(err))
+})
+
+
+app.delete('/delete/:id', (req, res) => {
+  const id = req.params.id
+  Modal.findByIdAndDelete({ _id: id })
+      .then(users => res.json(users))
+      .catch(err => res.json(err))
+})
 app.get('/ping', (req, res) =>{
     res.send('Hello World')
 })
 
 
 app.listen(port, ()=>{
-         console.log(`🚀 server running on PORT: ${port}`);
-        });
+   console.log(`🚀 server running on PORT: ${port}`);
+});

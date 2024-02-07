@@ -16,14 +16,7 @@ function AddForm() {
 
     const Submit = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:3000/data', {
-            serialNumber: serialNumber,
-            seriesOrMovieName: seriesOrMovieName,
-            villainName: villainName,
-            actions: actions,
-            villainImgLink: villainImgLink,
-            posterLink: posterLink
-        })
+        axios.post('http://localhost:3000/insert', {serialNumber,seriesOrMovieName, villainName, actions,villainImgLink, posterLink})
 
             .then(res => {
                 console.log(res)
@@ -33,13 +26,13 @@ function AddForm() {
     }
     return (
         <div className='form'>
-            <form onSubmit={(e) => Submit(e)}>
+            <form onSubmit={Submit}>
             <h2>Enter the details of your content here</h2>
                 <div className='inputField'>
                     <h3 className='formLabel'>Add Serial Number</h3>
                     <div className='inputLabel'>
                     <label htmlFor="">Serial No. : </label>
-                    <input type='text' id="" value={serialNumber} onChange={(e) => setSrNo(e.target.value)} />
+                    <input type='text' id="" onChange={(e) => setSrNo(e.target.value)} />
                     </div>
                 </div>
 
@@ -47,7 +40,7 @@ function AddForm() {
                     <h3 className='formLabel'>Add Movie or Series Name</h3>
                     <div className='inputLabel'>
                     <label htmlFor="">Series / Movie Name :  </label>
-                    <input type='text' id="" value={seriesOrMovieName} onChange={(e) => setMovieName(e.target.value)} />
+                    <input type='text' id=""  onChange={(e) => setMovieName(e.target.value)} />
                     </div>
                 </div>
 
@@ -56,7 +49,7 @@ function AddForm() {
                     <h3 className='formLabel'>Add Villain Name</h3>
                     <div className='inputLabel'>
                     <label htmlFor="">Villain Name : </label>
-                    <input type='text' id="" value={villainName} onChange={(e) => setVillainName(e.target.value)} />
+                    <input type='text' id=""  onChange={(e) => setVillainName(e.target.value)} />
                     </div>
                 </div>
 
@@ -64,7 +57,7 @@ function AddForm() {
                     <h3 className='formLabel'>Add Actions of the Villain </h3>
                     <div className='inputLabel'>
                     <label htmlFor="">Actions : </label>
-                    <textarea type='text' id="" value={actions} onChange={(e) => setVillainActions(e.target.value)} />
+                    <textarea type='text' id=""  onChange={(e) => setVillainActions(e.target.value)} />
                     </div>
                 </div>
 
@@ -72,7 +65,7 @@ function AddForm() {
                     <h3 className='formLabel'>Add Villain Image Link</h3>
                     <div className='inputLabel'>
                     <label htmlFor="">Villan Image Link : </label>
-                    <input type='text' id="" value={villainImgLink} onChange={(e) => setVillainLink(e.target.value)} />
+                    <input type='text' id=""  onChange={(e) => setVillainLink(e.target.value)} />
                     </div>
                 </div>
 
