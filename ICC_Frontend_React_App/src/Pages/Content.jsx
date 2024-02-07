@@ -3,6 +3,7 @@ import React from 'react';
 import './Content.css';
 import axios from 'axios'
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 function Content() {
 
   const [datas, setDatas] = useState([])
@@ -13,6 +14,10 @@ function Content() {
   },[])
   return (
     <div className='grid'>
+      <div className='btns'>
+      <Link to='/add'><button className='AddDataBtn'>Add Data</button></Link>
+      </div>
+      
     {
         datas.map((data, index)=>{
             return(
