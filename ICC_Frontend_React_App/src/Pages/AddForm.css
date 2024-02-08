@@ -28,13 +28,24 @@ form{
 }
 label{
     margin-right: 5px;
+    font-size: 20px;
 }
 .AddSubmit{
     border: none;
     border-radius: 10px;
-    width: 80px;
-    height: 30px;
+    width: 90px;
+    height: 40px;
     font-size: 15px;
     color: white;
     background-color: rgb(94, 121, 196);
+}
+input, textarea{
+    width: 200px;
+    height: 30px;
+    font-size: 15px;
+    text-wrap: wrap;
+    text-align:justify;
+    background-color: rgba(7, 7, 7, 0.249);
+    color: white;
+    border: 0.5px solid black;
 }

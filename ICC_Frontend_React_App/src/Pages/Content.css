@@ -10,6 +10,7 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: justify
 }
 
 .posterMovie {
@@ -49,4 +50,20 @@ img {
 }
 .btns{
     width: 100%;
+}
+.EditButton{
+    height: 30px;
+    width: 70px;
+    background-color: rgb(207, 56, 179);
+    color: white;
+    border: none;
+    margin: 5px;
+}
+.DeleteButton{
+    height: 30px;
+    width: 70px;
+    background-color: rgba(56, 104, 224, 0.84);
+    color: white;
+    border: none;   
+    margin: 5px;
 }
