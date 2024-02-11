@@ -16,7 +16,7 @@ function Home() {
                 
             </div>
             <div>
-                <Link to='/content'><button className='continueBtn'>Continue</button></Link>
+                <Link to='/login'><button className='continueBtn'>Continue</button></Link>
             </div>
         </div>
     )
