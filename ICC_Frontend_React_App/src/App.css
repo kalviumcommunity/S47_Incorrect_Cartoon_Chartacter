@@ -14,8 +14,9 @@ body {
 }
 .mainPage{
   display: flex;
+  flex-direction: column;
   width: 100%;
-  /* align-items: center;
+  align-items: center;
   justify-content: center;
-  place-items: center; */
+  place-items: center;
 }

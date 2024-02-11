@@ -7,6 +7,7 @@ app.use(cors())
 app.use(express.json());
 const Modal = require('./Scheme');
 const { validateInput } = require('./validator');
+
 mongoose.connect('mongodb+srv://ishita_naraniya:ishhMongodb@cluster1.ponxmip.mongodb.net/ASAP', {
   dbName: "ASAP"
 })
@@ -18,20 +19,32 @@ app.get('/data', (req, res) => {
     .catch(err => res.json(err))
 })
 
-app.post('/insert', (req, res) => {
-  Modal.create(req.body)
-    .then(users => res.json(users))
-    .catch(err => console.log(err))
+// app.post('/insert', (req, res) => {
+//   Modal.create(req.body)
+//     .then(users => res.json(users))
+//     .catch(err => console.log(err))
 
-    const { error, value } = validateInput(req.body)
+//     const { error, value } = validateInput(req.body)
 
-    if (error) {
-      console.log(error)
-      return res.send(error.details)
-    }
-    res.send('Successfully Added item!')
+//     if (error) {
+//       console.log(error)
+//       return res.send(error.details)
+//     }
+//     res.send('Successfully Added item!')
   
-})
+// })
+app.post('/insert', (req, res) => {
+  const { error, value } = validateInput(req.body);
+
+  if (error) {
+    console.log(error);
+    return res.status(400).json(error.details);
+  }
+
+  Modal.create(value)
+    .then(users => res.json(users))
+    .catch(err => console.log(err));
+});
 
 app.get('/getItem/:id', (req, res) => {
   const id = req.params.id
