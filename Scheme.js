@@ -6,7 +6,8 @@ const DeatailSchema = new mongoose.Schema({
     villainName : String,
     actions : String,
     villainImgLink : String,
-    posterLink : String
+    posterLink : String,
+    created_by:String
 })
 
 const Modal = mongoose.model('incorrect cartoon character', DeatailSchema)

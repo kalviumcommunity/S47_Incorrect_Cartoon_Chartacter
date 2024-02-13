@@ -8,6 +8,7 @@ function Content() {
 
   const [datas, setDatas] = useState([])
   // const [userData, setUserData] = useState({})
+  const [filteredUser, setFilteredUser] =useState('all')
 
   function getCookieNames() {
     const cookieArray = document.cookie.split('; ');
@@ -43,7 +44,17 @@ function Content() {
       })
       .catch(err => console.log(err))
   }
-  return (
+  const HandleChange = (e) => {
+    setFilteredUser(e.target.value)
+  }
+
+  const  filteredUsers = datas.filter((user) => {
+    if  (filteredUser === 'all') {return user}
+    else {
+      return user.created_by===filteredUser
+    }
+  })  
+    return (
     <div>
 
       <h1 className='mainHeading'>Incorrect Cartoon Character</h1>
@@ -55,10 +66,16 @@ function Content() {
         <Link to='/login'>
           <button onClick={handleLogOut} className='LogoutBtn'>Log Out</button>
         </Link>
+        <select name="created" id="" onChange={HandleChange} className='filter'>
+          <option value="all">All</option>
+          <option value="ishita">Ishita</option>
+          <option value="manya">Manya</option>
+          <option value="hanshul">Hanshul</option>
+        </select>
       </nav>
       <div className='grid'>
         {
-          datas.map((data, index) => {
+          filteredUsers.map((data, index) => {
             return (
               <div key={index} className='movieDiv'>
                 <div>
@@ -68,6 +85,7 @@ function Content() {
                 <p>{data.actions}</p>
                 <img src={data.villainImgLink} alt="" />
                 <h2>Villan Name : {data.villainName}</h2>
+                {data.created_by &&  <h4>Created By - {data.created_by}</h4>}
                 <div className="btnContainer">
                   <Link to={`/update/${data._id}`}> <button className='EditButton'>Edit</button></Link>
                   <button onClick={(e) => handleDelete(data._id)} className='DeleteButton'>Delete</button>

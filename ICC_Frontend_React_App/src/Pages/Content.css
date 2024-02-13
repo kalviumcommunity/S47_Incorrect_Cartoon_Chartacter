@@ -39,7 +39,7 @@ img {
     display: flex;
     flex-wrap: wrap;
 }
-.AddDataBtn, .LogoutBtn{
+.AddDataBtn, .LogoutBtn,select{
     color: white;
     width: 80px;
     height: 35px;
@@ -48,6 +48,10 @@ img {
     cursor: pointer;
     font-weight: 500;
     font-size: 15px;
+}
+select{
+    background-color: #F5C040;
+    color: black;
 }
 .AddDataBtn{
     background-color: green;
