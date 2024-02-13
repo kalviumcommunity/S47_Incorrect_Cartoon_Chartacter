@@ -1,30 +1,45 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
-import './AddForm.css'
+import './LoginForm.css'
+import React, { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-function LoginForm() {
+const LoginForm = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate()
 
-    const CookieData = (name , value) => {
-        document.cookie= `${name}=${value};path=/;`;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('http://localhost:3000/login', { username, password });
+      if (response.data && response.data.token) {
+        document.cookie = `${username}=${response.data.token}; path=/`;
+        console.log('Token from server:', response.data.token);
+        navigate('/content')
+      } else {
+        console.log('No token returned from server');
+        alert('Invalid User or Password')
+      }
+    } catch (error) {
+      alert('Invalid User or Password')
     }
-  return (
-    <>
-    <h1>Login Form</h1>
-    <br />
-    <form onSubmit={(e)=>{ e.preventDefault(); }} >
-        <label htmlFor="">Enter Name :</label>
-        <input type='text' name='name' id='name' onChange={(e)=> CookieData('name', e.target.value)}/> <br />
-        <label htmlFor="">Enter Email :</label>
-        <input type='email' name='email' id='email' onChange={(e)=> CookieData('email', e.target.value)}/><br/>
-        <label htmlFor="">Enter User Name :</label>
-        <input type='text' name='username' id='username' onChange={(e)=> CookieData('username', e.target.value)}/><br/>
-        <Link to='/content'>
-        <button type='submit'>Submit</button>
-        </Link>
-       
-    </form>
-    </>
-  )
-}
+  };
 
-export default LoginForm
+  return (
+    <div className='LoginFormDiv'>
+      <form onSubmit={handleSubmit} className='LoginForm'>
+        <div>
+          <label htmlFor="username">User Name :</label>
+          <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
+        </div>
+        <div>
+          <label htmlFor="password" >Password :</label>
+          <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        </div>
+        <button type="submit" className='loginBtn' >Log In</button>
+      </form>
+    </div>
+  );
+};
+
+export default LoginForm;
