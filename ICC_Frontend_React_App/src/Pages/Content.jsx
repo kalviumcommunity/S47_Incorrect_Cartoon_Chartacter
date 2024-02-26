@@ -31,13 +31,13 @@ function Content() {
 
 
   useEffect(() => {
-    axios.get('http://localhost:3000/data')
+    axios.get('https://incorrect-cartoon-chartacter.onrender.com/data')
       .then(datas => setDatas(datas.data))
       .catch(err => console.log(err))
   }, [])
 
   const handleDelete = (id) => {
-    axios.delete('http://localhost:3000/delete/' + id)
+    axios.delete('https://incorrect-cartoon-chartacter.onrender.com/delete/' + id)
       .then(res => {
         console.log(res)
         window.location.reload();

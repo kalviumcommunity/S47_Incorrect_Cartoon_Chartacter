@@ -13,7 +13,7 @@ function UpdateContent() {
     const navigate = useNavigate()
 
     useEffect(()=>{
-        axios.get(`http://localhost:3000/getItem/${id}`)
+        axios.get(`https://incorrect-cartoon-chartacter.onrender.com/getItem/${id}`)
             .then(res => { 
                 console.log(res)
                 setSrNo(res.data.serialNumber)
@@ -29,7 +29,7 @@ function UpdateContent() {
 
     const Update = (e) => {
         e.preventDefault()
-        axios.put('http://localhost:3000/update/'+id , {serialNumber,seriesOrMovieName, villainName, actions,villainImgLink, posterLink})
+        axios.put('https://incorrect-cartoon-chartacter.onrender.com/update/'+id , {serialNumber,seriesOrMovieName, villainName, actions,villainImgLink, posterLink})
 
             .then(res => {
                 console.log(res)

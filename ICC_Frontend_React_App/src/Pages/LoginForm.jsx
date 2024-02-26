@@ -11,7 +11,7 @@ const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/login', { username, password });
+      const response = await axios.post('https://incorrect-cartoon-chartacter.onrender.com/login', { username, password });
       if (response.data && response.data.token) {
         document.cookie = `${username}=${response.data.token}; path=/`;
         console.log('Token from server:', response.data.token);
@@ -27,6 +27,7 @@ const LoginForm = () => {
 
   return (
     <div className='LoginFormDiv'>
+      <p style={{ color: 'blue' }}>* for login username = test, password= password</p>
       <form onSubmit={handleSubmit} className='LoginForm'>
         <div>
           <label htmlFor="username">User Name :</label>
