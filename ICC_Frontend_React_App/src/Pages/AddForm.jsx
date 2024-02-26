@@ -16,7 +16,7 @@ function AddForm() {
 
     const Submit = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:3000/insert', {serialNumber,seriesOrMovieName, villainName, actions,villainImgLink, posterLink})
+        axios.post('https://incorrect-cartoon-chartacter.onrender.com/insert', {serialNumber,seriesOrMovieName, villainName, actions,villainImgLink, posterLink})
 
             .then(res => {
                 console.log(res)
