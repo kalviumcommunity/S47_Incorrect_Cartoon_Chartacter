@@ -1,5 +1,37 @@
-body{
-    background-color: lightskyblue;
-    font-size: 20px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+.Heading {
+    font-family: "Satisfy", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 70px;
+}
+
+.HomeDiv {
+    color: white;
+    border-radius: 20px;
+    border: 2px solid rgb(255, 255, 255);
+    height: 75vh;
+}
+.HomePage{
+    height: 95vh;
+    margin: 10px 40px;
+}
+
+.description {
+    font-size: 25px;
+}
+.continueBtn{
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px;
+    /* background-image: radial-gradient( #78A3AB ); */
+    background-color: black;
+    color: white
+}
+
+.continueBtn:hover{
+    background-color: grey;
 }

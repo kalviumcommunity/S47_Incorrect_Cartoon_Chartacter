@@ -1,0 +1,52 @@
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: black;
+}
+form{
+    border: 2px dotted black;
+    border-radius: 10px;
+    width:40vw;
+    padding: 1vw;
+}
+.formLabel{
+    font-family: cursive;
+    margin: 10px;
+    font-size: 20px;
+}
+.inputField{
+    border: 1px double white;
+    margin: 2vh;
+}
+.inputLabel{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    align-items: center;
+}
+label{
+    margin-right: 5px;
+    font-size: 20px;
+}
+.AddSubmit{
+    border: none;
+    border-radius: 10px;
+    width: 90px;
+    height: 40px;
+    font-size: 15px;
+    color: white;
+    background-color: rgb(94, 121, 196);
+}
+input, textarea{
+    width: 200px;
+    height: 30px;
+    font-size: 15px;
+    text-wrap: wrap;
+    text-align:justify;
+    background-color: white;
+    border: 0.5px solid black;
+    border-radius: 8px;
+    padding: 5px;
+}
