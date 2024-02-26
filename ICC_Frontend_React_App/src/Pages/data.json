@@ -1,0 +1,31 @@
+[
+    {
+        "id": 1,    
+        "serialNumber": 1,
+        "seriesMovieName": "Beauty and the Beast",
+        "villainName": "Gaston",
+        "actions": "Gaston underestimates Belle's intelligence, fueling her rebellious spirit. He misjudges the Beast's strength, alienates the townspeople, and clumsily attempts to manipulate the situation. His overconfidence and blind rage lead to his downfall.",
+        "villainImgLink": "https://static.wikia.nocookie.net/disney/images/d/d4/Profile_-_Gaston.jpeg",
+        "posterLink": "https://lumiere-a.akamaihd.net/v1/images/p_beautyandthebeast1991_20488_592ec4b5.jpeg"
+          
+    },
+    {
+        "id": 2,
+        "serialNumber": 2,
+        "seriesMovieName": "Despicable Me",
+        "villainName": "Gru",
+        "actions": "Gru's elaborate schemes to steal the moon or shrink the world often rely on Rube Goldberg-esque contraptions that predictably malfunction, leaving him tangled in wires, covered in glue, or dangling precariously from a shrinking skyscraper.",
+        "villainImgLink": "https://static.wikia.nocookie.net/despicableme/images/b/ba/Gru.jpg",
+        "posterLink": "https://m.media-amazon.com/images/M/MV5BMTY3NjY0MTQ0Nl5BMl5BanBnXkFtZTcwMzQ2MTc0Mw@@._V1_.jpg"
+      },
+
+      {
+        "id" : 3,
+        "serialNumber": 3,
+        "seriesMovieName": "Frozen",
+        "villainName": "Hans",
+        "actions": "Hans' plan to marry into royalty for power takes a humorous turn when he's thwarted by Anna's unexpected act of true love. His calculated deception is exposed, and the absurdity of his scheme adds a comedic element to his defeat.",
+        "villainImgLink": "https://static.wikia.nocookie.net/disney/images/e/ee/Profile_-_Hans.jpeg",
+        "posterLink": "https://lumiere-a.akamaihd.net/v1/images/p_frozen_18373_3131259c.jpeg?region=0%2C0%2C540%2C810"
+      }
+]
